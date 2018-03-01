@@ -1,0 +1,26 @@
+/*
+ * Programmer: Dylan Yang
+ * Date: Oct 13 2017
+ * Purpose: to use nested loops to print a design using six letters of the alphabet
+ */
+
+public class SixLetters {
+
+	public static void main(String[] args) {
+
+		int i, n;
+		char a;
+
+		for (a = 'a'; a < 'f' <= 6; i++) {
+
+			for (n = 0; n < i; n++) {
+
+				System.out.print((char)(n + 65));
+			}
+
+			System.out.println();
+
+		}
+
+	}
+}

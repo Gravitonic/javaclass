@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="examples"/>
+	<classpathentry kind="src" path="arraysWorksheet1"/>
+	<classpathentry kind="src" path="arraysWorksheet2"/>
+	<classpathentry kind="src" path="arrayWorksheet3"/>
+	<classpathentry kind="src" path="sequentialSearchWorksheet"/>
+	<classpathentry kind="src" path="decryptMessage"/>
+	<classpathentry kind="src" path="encryptAndDecrypt"/>
+	<classpathentry kind="src" path="binarySearch"/>
+	<classpathentry kind="src" path="sortingArrays1"/>
+	<classpathentry kind="src" path="sortingArrays2"/>
+	<classpathentry kind="src" path="videoStoreSystem"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

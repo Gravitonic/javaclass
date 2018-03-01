@@ -1,0 +1,32 @@
+/*
+ * Programmer: Dylan Yang
+ * Date: Feb 26, 2018
+ * Purpose: to create a JPanel subclass with a background image 
+ */
+
+import java.awt.*;
+import javax.swing.*;
+
+public class BackgroundPanel extends JPanel {
+
+	private Image bg;
+	private int bgWidth, bgHeight;
+	
+	public BackgroundPanel() {
+		ImageIcon i = new ImageIcon("src/background.jpg");
+		bg = i.getImage();
+		bgWidth = bg.getWidth(null);
+		bgHeight = bg.getHeight(null);
+	}
+	
+	public int getWidth() {
+		return bgWidth;
+	}
+	
+	public int getHeight() {
+		return bgHeight;
+	}
+	
+	
+	
+}
