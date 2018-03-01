@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 5 elements to &apos;chapter8/src/bankAccountWithCustomer&apos;&#x0A;- Original project: &apos;BankAccountWithCustomer&apos;&#x0A;- Destination element: &apos;chapter8/src/bankAccountWithCustomer&apos;&#x0A;- Original elements:&#x0A;     SavingsAccount.java&#x0A;     CheckingAccount.java&#x0A;     Customer.java&#x0A;     BankAccount.java&#x0A;     Tester.java&#x0A;- Update references to refactored element" description="Move compilation units" destination="=chapter8/src&lt;bankAccountWithCustomer" element1="/src&lt;{SavingsAccount.java" element2="/src&lt;{CheckingAccount.java" element3="/src&lt;{Customer.java" element4="/src&lt;{BankAccount.java" element5="/src&lt;{Tester.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1519924208334" units="5" version="1.0"/>
+</session>
