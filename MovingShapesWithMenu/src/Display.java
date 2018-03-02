@@ -13,10 +13,9 @@ public class Display extends JPanel implements ActionListener {
 
 	private JFrame f;
 	private JMenuBar menuBar;
-	private JMenuItem exitMenuItem, startAllMenuItem, stopAllMenuItem;
 	private JMenuItem[] fileMenuItems = new JMenuItem[1]; // [0]: exit
 	private JMenuItem[] blockMenuItems = new JMenuItem[2]; // [0]: start submenu, [1]: stop submenu 
-	private JMenuItem[] startSubmenuItems = new JMenuItem[5]; // [0]: start all, [n]: start block n (1 <= n <= 5)
+	private JMenuItem[] startSubmenuItems = new JMenuItem[5]; // [0]: start all, [n]: start block n (1 <= n <= 4)
 	private JMenuItem[] stopSubmenuItems = new JMenuItem[5]; // [0]: stop all, [n]: stop block n (1 <= n <= 5)
 	private Block[] blocks = {new Block(), new Block(), new Block(), new Block()};
 	private int numBlocks = 0;
@@ -44,18 +43,32 @@ public class Display extends JPanel implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getSource() == exitMenuItem) {
+		if (e.getSource() == fileMenuItems[0]) {
 			System.exit(0);
-		} else if (e.getSource() == startAllMenuItem) {
+			
+		} else if (e.getSource() == startSubmenuItems[0])
 			for (Block b : blocks)
 				b.startTimer();
-			t.stop();
-		} else if (e.getSource() == stopAllMenuItem) {
+		else if (e.getSource() == startSubmenuItems[1])
+			blocks[0].startTimer();
+		else if (e.getSource() == startSubmenuItems[2])
+			blocks[1].startTimer();
+		else if (e.getSource() == startSubmenuItems[3])
+			blocks[2].startTimer();
+		else if (e.getSource() == startSubmenuItems[4])
+			blocks[3].startTimer();
+		
+		else if (e.getSource() == stopSubmenuItems[0])
 			for (Block b : blocks)
 				b.stopTimer();
-			t.stop();
-			System.out.println("t.stop()");
-		}
+		else if (e.getSource() == stopSubmenuItems[1])
+			blocks[0].stopTimer();
+		else if (e.getSource() == stopSubmenuItems[2])
+			blocks[1].stopTimer();
+		else if (e.getSource() == stopSubmenuItems[3])
+			blocks[2].stopTimer();
+		else if (e.getSource() == stopSubmenuItems[4])
+			blocks[3].stopTimer();
 
 		for (Block b : blocks) {
 			b.setPanelWidth(f.getContentPane().getWidth());
@@ -74,26 +87,56 @@ public class Display extends JPanel implements ActionListener {
 		
 		JMenu fileMenu = new JMenu("File");
 		
-		exitMenuItem = new JMenuItem("Exit");
-		exitMenuItem.addActionListener(this);
-		fileMenu.add(exitMenuItem);
+		fileMenuItems[0] = new JMenuItem("Exit");
+		fileMenuItems[0].addActionListener(this);
+		
+		fileMenu.add(fileMenuItems[0]);
+		
 		
 		JMenu blockMenu = new JMenu("Block");
 		
-		JMenu startSubMenu = new JMenu("Start");
+		blockMenuItems[0] = new JMenu("Start");
 		
-		startAllMenuItem = new JMenuItem("Start");
-		startAllMenuItem.addActionListener(this);
-		startSubMenu.add(startAllMenuItem);
+		startSubmenuItems[0] = new JMenuItem("Start All");
+		startSubmenuItems[0].addActionListener(this);
 		
-		JMenu stopSubMenu = new JMenu("Stop");
+		startSubmenuItems[1] = new JMenuItem("Start Block 1");
+		startSubmenuItems[1].addActionListener(this);
 		
-		stopAllMenuItem = new JMenuItem("Stop");
-		stopAllMenuItem.addActionListener(this);
-		stopSubMenu.add(stopAllMenuItem);
+		startSubmenuItems[2] = new JMenuItem("Start Block 2");
+		startSubmenuItems[2].addActionListener(this);
 		
-		blockMenu.add(startSubMenu);
-		blockMenu.add(stopSubMenu);
+		startSubmenuItems[3] = new JMenuItem("Start Block 3");
+		startSubmenuItems[3].addActionListener(this);
+		
+		startSubmenuItems[4] = new JMenuItem("Start Block 4");
+		startSubmenuItems[4].addActionListener(this);
+		
+		for (JMenuItem menuItem : startSubmenuItems)
+			blockMenuItems[0].add(menuItem);
+		
+		blockMenuItems[1] = new JMenu("Stop");
+		
+		stopSubmenuItems[0] = new JMenuItem("Stop All");
+		stopSubmenuItems[0].addActionListener(this);
+		
+		stopSubmenuItems[1] = new JMenuItem("Stop Block 1");
+		stopSubmenuItems[1].addActionListener(this);
+		
+		stopSubmenuItems[2] = new JMenuItem("Stop Block 2");
+		stopSubmenuItems[2].addActionListener(this);
+		
+		stopSubmenuItems[3] = new JMenuItem("Stop Block 3");
+		stopSubmenuItems[3].addActionListener(this);
+		
+		stopSubmenuItems[4] = new JMenuItem("Stop Block 4");
+		stopSubmenuItems[4].addActionListener(this);
+		
+		for (JMenuItem menuItem : stopSubmenuItems)
+			blockMenuItems[1].add(menuItem);
+		
+		for (int i = 0; i < blockMenuItems.length; i++)
+			blockMenu.add(blockMenuItems[i]);
 		
 		menuBar.add(fileMenu);
 		menuBar.add(blockMenu);
