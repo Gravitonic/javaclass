@@ -8,6 +8,7 @@
 		<item value="false" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="stopM"/>
 			<item value="setVisible"/>
 			<item value="&#x09;&#x09;this.panelWidth = frame.getContentPane().getWidth();"/>
 			<item value=" (y/n)"/>

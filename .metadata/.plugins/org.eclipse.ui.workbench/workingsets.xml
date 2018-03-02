@@ -8,7 +8,7 @@
 <item elementID="=util" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
 <workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1519864800563_4" label="Chapter 9" name="Chapter 9">
-<item elementID="=MovingShapes" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MovingShapesWithMenu" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1504367558830_0" label="Window Working Set" name="Aggregate for window 1504367558829"/>
 </workingSetManager>

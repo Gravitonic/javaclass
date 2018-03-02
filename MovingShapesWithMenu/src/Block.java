@@ -11,6 +11,7 @@ public class Block implements ActionListener {
 
 	private int deltaX, deltaY, width, height, panelWidth, panelHeight;
 	private boolean xBackward = false, yBackward = false;
+	private Timer t;
 
 	public Block() {
 		deltaX = 0;
@@ -19,7 +20,7 @@ public class Block implements ActionListener {
 		height = 50;
 		panelWidth = 600;
 		panelHeight = 400;
-		Timer t = new Timer(5, this);
+		t = new Timer(5, this);
 		t.start();
 	}
 	
@@ -30,7 +31,7 @@ public class Block implements ActionListener {
 		height = 50;
 		panelWidth = 600;
 		panelHeight = 400;
-		Timer t = new Timer(timerSpeed, this);
+		t = new Timer(timerSpeed, this);
 		t.start();
 	}
 	
@@ -41,7 +42,7 @@ public class Block implements ActionListener {
 		this.height = height;
 		this.panelWidth = 600;
 		this.panelHeight = 400;
-		Timer t = new Timer(timerSpeed, this);
+		t = new Timer(timerSpeed, this);
 		t.start();
 	}
 	
@@ -52,7 +53,7 @@ public class Block implements ActionListener {
 		this.height = height;
 		this.panelWidth = frame.getContentPane().getWidth();
 		this.panelHeight = frame.getContentPane().getHeight();
-		Timer t = new Timer(timerSpeed, this);
+		t = new Timer(timerSpeed, this);
 		t.start();
 	}
 	
@@ -102,6 +103,18 @@ public class Block implements ActionListener {
 	
 	public void setPanelHeight(int panelHeight) {
 		this.panelHeight = panelHeight;
+	}
+	
+	public void stopTimer() {
+		t.stop();
+	}
+	
+	public void startTimer() {
+		t.start();
+	}
+	
+	public void restartTimer() {
+		t.restart();
 	}
 
 }
