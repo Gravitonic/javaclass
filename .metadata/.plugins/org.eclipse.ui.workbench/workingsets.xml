@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
 <workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1507764479420_2" label="Personal" name="Personal"/>
-<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1507764486766_3" label="School" name="School">
-<item elementID="=chapter4" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=chapter5" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=chapter6" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=util" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-</workingSet>
-<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1519864800563_4" label="Chapter 9" name="Chapter 9">
-<item elementID="=MovingShapesWithMenu" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1507764486766_3" label="School" name="School"/>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1519864800563_4" label="Chapter 9" name="Chapter 9"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1504367558830_0" label="Window Working Set" name="Aggregate for window 1504367558829"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1520008797410_4" label="Window Working Set" name="Aggregate for window 1520008661693"/>
 </workingSetManager>
