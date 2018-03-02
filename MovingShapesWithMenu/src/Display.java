@@ -13,9 +13,11 @@ public class Display extends JPanel implements ActionListener {
 
 	private JFrame f;
 	private JMenuBar menuBar;
-	private JMenuItem exitMenuItem;
-	private JMenuItem startAllMenuItem;
-	private JMenuItem stopAllMenuItem;
+	private JMenuItem exitMenuItem, startAllMenuItem, stopAllMenuItem;
+	private JMenuItem[] fileMenuItems = new JMenuItem[1]; // [0]: exit
+	private JMenuItem[] blockMenuItems = new JMenuItem[2]; // [0]: start submenu, [1]: stop submenu 
+	private JMenuItem[] startSubmenuItems = new JMenuItem[5]; // [0]: start all, [n]: start block n (1 <= n <= 5)
+	private JMenuItem[] stopSubmenuItems = new JMenuItem[5]; // [0]: stop all, [n]: stop block n (1 <= n <= 5)
 	private Block[] blocks = {new Block(), new Block(), new Block(), new Block()};
 	private int numBlocks = 0;
 	private static final int TOP_LEFT = 1, TOP_RIGHT = 2, BOTTOM_LEFT = 3, BOTTOM_RIGHT = 4 /*, TOP = 5, LEFT = 6, BOTTOM = 7, RIGHT = 8, CENTER = 9 */;
