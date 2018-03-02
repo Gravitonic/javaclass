@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/Examples/src/FirstWindow.java"/>
+<listEntry value="/chapter9/src/examples/FirstWindow.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="FirstWindow"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Examples"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="examples.FirstWindow"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="chapter9"/>
 </launchConfiguration>
