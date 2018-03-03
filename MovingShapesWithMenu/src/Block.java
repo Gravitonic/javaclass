@@ -10,7 +10,7 @@ import javax.swing.*;
 public class Block implements ActionListener {
 
 	private int deltaX, deltaY, width, height, panelWidth, panelHeight;
-	private boolean xBackward = false, yBackward = false;
+	private boolean xBackward = false, yBackward = false, visible;
 	private Timer t;
 
 	public Block() {
@@ -20,6 +20,7 @@ public class Block implements ActionListener {
 		height = 50;
 		panelWidth = 600;
 		panelHeight = 400;
+		visible = false;
 		t = new Timer(5, this);
 		t.start();
 	}
@@ -31,6 +32,7 @@ public class Block implements ActionListener {
 		height = 50;
 		panelWidth = 600;
 		panelHeight = 400;
+		visible = true;
 		t = new Timer(timerSpeed, this);
 		t.start();
 	}
@@ -42,6 +44,7 @@ public class Block implements ActionListener {
 		this.height = height;
 		this.panelWidth = 600;
 		this.panelHeight = 400;
+		visible = true;
 		t = new Timer(timerSpeed, this);
 		t.start();
 	}
@@ -53,6 +56,7 @@ public class Block implements ActionListener {
 		this.height = height;
 		this.panelWidth = frame.getContentPane().getWidth();
 		this.panelHeight = frame.getContentPane().getHeight();
+		visible = true;
 		t = new Timer(timerSpeed, this);
 		t.start();
 	}
@@ -115,6 +119,10 @@ public class Block implements ActionListener {
 	
 	public void restartTimer() {
 		t.restart();
+	}
+	
+	public boolean isVisible() {
+		return visible;
 	}
 
 }

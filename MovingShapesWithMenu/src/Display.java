@@ -13,13 +13,14 @@ public class Display extends JPanel implements ActionListener {
 
 	private JFrame f;
 	private JMenuBar menuBar;
-	private JMenuItem[] fileMenuItems = new JMenuItem[1]; // [0]: exit
+	private JMenuItem[] fileMenuItems = new JMenuItem[2]; // [0]: new block, [1]: exit
 	private JMenuItem[] blockMenuItems = new JMenuItem[2]; // [0]: start submenu, [1]: stop submenu 
-	private JMenuItem[] startSubmenuItems = new JMenuItem[5]; // [0]: start all, [n]: start block n (1 <= n <= 4)
-	private JMenuItem[] stopSubmenuItems = new JMenuItem[5]; // [0]: stop all, [n]: stop block n (1 <= n <= 5)
-	private Block[] blocks = {new Block(), new Block(), new Block(), new Block()};
+	private JMenuItem[] startSubmenuItems = new JMenuItem[10]; // [0]: start all, [n]: start block n (1 <= n <= 4)
+	private JMenuItem[] stopSubmenuItems = new JMenuItem[10]; // [0]: stop all, [n]: stop block n (1 <= n <= 5)
+	private Block[] blocks = {new Block(), new Block(), new Block(), new Block(), new Block(), new Block(), new Block(), new Block(), new Block()};
 	private int numBlocks = 0;
-	private static final int TOP_LEFT = 1, TOP_RIGHT = 2, BOTTOM_LEFT = 3, BOTTOM_RIGHT = 4 /*, TOP = 5, LEFT = 6, BOTTOM = 7, RIGHT = 8, CENTER = 9 */;
+	@SuppressWarnings("unused")
+	private static final int TOP_LEFT = 1, TOP_RIGHT = 2, BOTTOM_LEFT = 3, BOTTOM_RIGHT = 4, CENTER_TOP = 5, CENTER_LEFT = 6, CENTER_BOTTOM = 7, CENTER_RIGHT = 8, CENTER = 9;
 	private Timer t;
 	private int timerSpeed;
 
@@ -34,19 +35,22 @@ public class Display extends JPanel implements ActionListener {
 	}
 
 	public void paintComponent(Graphics g) {
-
-		for (Block b : blocks) {
-			g.fillRect(b.getDeltaX(), b.getDeltaY(), b.getWidth(), b.getHeight());
-		}
-
+		for (Block b : blocks)
+			if (b.isVisible())
+				g.fillRect(b.getDeltaX(), b.getDeltaY(), b.getWidth(), b.getHeight());
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getSource() == fileMenuItems[0]) {
+		// File menu
+		if (e.getSource() == fileMenuItems[0])
+			setupBlock(numBlocks + 1, 50, 50);
+		else if (e.getSource() == fileMenuItems[1])
 			System.exit(0);
-			
-		} else if (e.getSource() == startSubmenuItems[0])
+
+		// Block menu
+		// Start submenu
+		else if (e.getSource() == startSubmenuItems[0])
 			for (Block b : blocks)
 				b.startTimer();
 		else if (e.getSource() == startSubmenuItems[1])
@@ -57,7 +61,18 @@ public class Display extends JPanel implements ActionListener {
 			blocks[2].startTimer();
 		else if (e.getSource() == startSubmenuItems[4])
 			blocks[3].startTimer();
-		
+		else if (e.getSource() == startSubmenuItems[5])
+			blocks[4].startTimer();
+		else if (e.getSource() == startSubmenuItems[6])
+			blocks[5].startTimer();
+		else if (e.getSource() == startSubmenuItems[7])
+			blocks[6].startTimer();
+		else if (e.getSource() == startSubmenuItems[8])
+			blocks[7].startTimer();
+		else if (e.getSource() == startSubmenuItems[9])
+			blocks[8].startTimer();
+
+		// Stop submenu
 		else if (e.getSource() == stopSubmenuItems[0])
 			for (Block b : blocks)
 				b.stopTimer();
@@ -70,6 +85,7 @@ public class Display extends JPanel implements ActionListener {
 		else if (e.getSource() == stopSubmenuItems[4])
 			blocks[3].stopTimer();
 
+		// update window sizes
 		for (Block b : blocks) {
 			b.setPanelWidth(f.getContentPane().getWidth());
 			b.setPanelHeight(f.getContentPane().getHeight());
@@ -81,14 +97,17 @@ public class Display extends JPanel implements ActionListener {
 
 	public void setupWindow(Display p) {
 
-		f = new JFrame("Display");
+		f = new JFrame("Blocks");
 
 		menuBar = new JMenuBar();
 		
 		JMenu fileMenu = new JMenu("File");
 		
-		fileMenuItems[0] = new JMenuItem("Exit");
+		fileMenuItems[0] = new JMenuItem("New Block");
 		fileMenuItems[0].addActionListener(this);
+		
+		fileMenuItems[1] = new JMenuItem("Exit");
+		fileMenuItems[1].addActionListener(this);
 		
 		fileMenu.add(fileMenuItems[0]);
 		
@@ -97,43 +116,22 @@ public class Display extends JPanel implements ActionListener {
 		
 		blockMenuItems[0] = new JMenu("Start");
 		
-		startSubmenuItems[0] = new JMenuItem("Start All");
-		startSubmenuItems[0].addActionListener(this);
-		
-		startSubmenuItems[1] = new JMenuItem("Start Block 1");
-		startSubmenuItems[1].addActionListener(this);
-		
-		startSubmenuItems[2] = new JMenuItem("Start Block 2");
-		startSubmenuItems[2].addActionListener(this);
-		
-		startSubmenuItems[3] = new JMenuItem("Start Block 3");
-		startSubmenuItems[3].addActionListener(this);
-		
-		startSubmenuItems[4] = new JMenuItem("Start Block 4");
-		startSubmenuItems[4].addActionListener(this);
-		
-		for (JMenuItem menuItem : startSubmenuItems)
-			blockMenuItems[0].add(menuItem);
+		for (int i = 1; i < startSubmenuItems.length; i++) {
+			startSubmenuItems[i] = new JMenuItem("Start Block " + i);
+			startSubmenuItems[i].addActionListener(this);
+			blockMenuItems[0].add(startSubmenuItems[i]);
+		}
 		
 		blockMenuItems[1] = new JMenu("Stop");
 		
 		stopSubmenuItems[0] = new JMenuItem("Stop All");
 		stopSubmenuItems[0].addActionListener(this);
 		
-		stopSubmenuItems[1] = new JMenuItem("Stop Block 1");
-		stopSubmenuItems[1].addActionListener(this);
-		
-		stopSubmenuItems[2] = new JMenuItem("Stop Block 2");
-		stopSubmenuItems[2].addActionListener(this);
-		
-		stopSubmenuItems[3] = new JMenuItem("Stop Block 3");
-		stopSubmenuItems[3].addActionListener(this);
-		
-		stopSubmenuItems[4] = new JMenuItem("Stop Block 4");
-		stopSubmenuItems[4].addActionListener(this);
-		
-		for (JMenuItem menuItem : stopSubmenuItems)
-			blockMenuItems[1].add(menuItem);
+		for (int i = 1; i < stopSubmenuItems.length; i++) {
+			stopSubmenuItems[i]  = new JMenuItem("Stop Block " + i);
+			stopSubmenuItems[i].addActionListener(this);
+			blockMenuItems[1].add(stopSubmenuItems[i]);
+		}
 		
 		for (int i = 0; i < blockMenuItems.length; i++)
 			blockMenu.add(blockMenuItems[i]);
@@ -189,6 +187,26 @@ public class Display extends JPanel implements ActionListener {
 			break;
 		case 4: // BOTTOM_RIGHT
 			blocks[numBlocks] = new Block(frameWidth - width, frameHeight - height, timerSpeed, width, height, frameWidth, frameHeight);
+			numBlocks++;
+			break;
+		case 5: // CENTER_TOP
+			blocks[numBlocks] = new Block((frameWidth - width) / 2, 0, timerSpeed, width, height, frameWidth, frameHeight);
+			numBlocks++;
+			break;
+		case 6: // CENTER_LEFT
+			blocks[numBlocks] = new Block(0, (frameHeight - height) / 2, timerSpeed, width, height, frameWidth, frameHeight);
+			numBlocks++;
+			break;
+		case 7: // CENTER_BOTTOM
+			blocks[numBlocks] = new Block((frameWidth - width) / 2, frameHeight - height, timerSpeed, width, height, frameWidth, frameHeight);
+			numBlocks++;
+			break;
+		case 8: // CENTER_RIGHT
+			blocks[numBlocks] = new Block(frameWidth - width, (frameHeight - height) / 2, timerSpeed, width, height, frameWidth, frameHeight);
+			numBlocks++;
+			break;
+		case 9: // CENTER
+			blocks[numBlocks] = new Block((frameWidth - width) / 2, (frameWidth - width) / 2, timerSpeed, width, height, frameWidth, frameHeight);
 			numBlocks++;
 			break;
 		}
