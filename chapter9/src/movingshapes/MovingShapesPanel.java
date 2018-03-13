@@ -10,17 +10,17 @@ import java.awt.event.*;
 import javax.swing.*;
 
 @SuppressWarnings("serial")
-public class Display extends JPanel implements ActionListener {
+public class MovingShapesPanel extends JPanel implements ActionListener {
 
 	private JFrame f;
 	private Block b, b2;
 	private Timer t;
 
-	public Display() {
+	public MovingShapesPanel() {
 		t = new Timer(5, this);
 	}
 
-	public Display(int timerSpeed) {
+	public MovingShapesPanel(int timerSpeed) {
 		t = new Timer(timerSpeed, this);
 	}
 
@@ -40,7 +40,7 @@ public class Display extends JPanel implements ActionListener {
 		repaint();
 	}
 
-	public void setupWindow(Display p) {
+	public void setupWindow(MovingShapesPanel p) {
 
 		f = new JFrame("Display");
 
@@ -83,7 +83,7 @@ public class Display extends JPanel implements ActionListener {
 
 		final int TIMER_SPEED = 5;
 
-		Display p = new Display(TIMER_SPEED);
+		MovingShapesPanel p = new MovingShapesPanel(TIMER_SPEED);
 
 		p.setupWindow(p);
 		p.setupBlock(TIMER_SPEED);

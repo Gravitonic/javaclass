@@ -1,3 +1,4 @@
+package movingshapeswithmenu;
 /*
  * Programmer: Dylan Yang
  * Date: Feb 15, 2018
@@ -9,7 +10,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 @SuppressWarnings("serial")
-public class Display extends JPanel implements ActionListener {
+public class MovingShapesPanel extends JPanel implements ActionListener {
 
 	private JFrame f;
 	private JMenuBar menuBar;
@@ -24,11 +25,11 @@ public class Display extends JPanel implements ActionListener {
 	private Timer t;
 	private int timerSpeed;
 
-	public Display() {
+	public MovingShapesPanel() {
 		t = new Timer(5, this);
 	}
 
-	public Display(int timerSpeed) {
+	public MovingShapesPanel(int timerSpeed) {
 		super();
 		this.timerSpeed = timerSpeed;
 		t = new Timer(timerSpeed, this);
@@ -95,7 +96,7 @@ public class Display extends JPanel implements ActionListener {
 
 	}
 
-	public void setupWindow(Display p) {
+	public void setupWindow(MovingShapesPanel p) {
 
 		f = new JFrame("Blocks");
 
@@ -221,7 +222,7 @@ public class Display extends JPanel implements ActionListener {
 
 		final int TIMER_SPEED = 5;
 
-		Display p = new Display(TIMER_SPEED);
+		MovingShapesPanel p = new MovingShapesPanel(TIMER_SPEED);
 
 		p.setupWindow(p);
 		p.setupBlock(TOP_LEFT, 50, 50);
