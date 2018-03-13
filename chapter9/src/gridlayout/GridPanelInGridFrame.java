@@ -22,8 +22,10 @@ public class GridPanelInGridFrame implements ActionListener {
 			System.out.println("Button 5 was pressed");
 		else if (e.getSource() == b6)
 			System.exit(0);
-		else if (e.getSource() == t1)
+		else if (e.getSource() == t1) {
 			System.out.println(t1.getText());
+			t1.setText("");
+		}
 	}
 
 	public void setupWindow() {

@@ -62,6 +62,7 @@ public class MovingBackgroundPanel extends JPanel implements ActionListener, Key
 	public void keyTyped(KeyEvent e) {
 		
 		if (e.getKeyChar() == 'a') {
+			System.out.println("Key 'a' pressed.");
 			direction = tempDirection;
 			direction--;
 		}
