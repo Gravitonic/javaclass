@@ -21,7 +21,7 @@ public class MovingShapesPanel extends JPanel implements ActionListener {
 	private Block[] blocks = {new Block(), new Block(), new Block(), new Block(), new Block(), new Block(), new Block(), new Block(), new Block()};
 	private int numBlocks = 0;
 	@SuppressWarnings("unused")
-	private static final int TOP_LEFT = 1, TOP_RIGHT = 2, BOTTOM_LEFT = 3, BOTTOM_RIGHT = 4, CENTER_TOP = 5, CENTER_LEFT = 6, CENTER_BOTTOM = 7, CENTER_RIGHT = 8, CENTER = 9;
+	public static final int TOP_LEFT = 1, TOP_RIGHT = 2, BOTTOM_LEFT = 3, BOTTOM_RIGHT = 4, CENTER_TOP = 5, CENTER_LEFT = 6, CENTER_BOTTOM = 7, CENTER_RIGHT = 8, CENTER = 9;
 	private Timer t;
 	private int timerSpeed;
 
@@ -218,6 +218,10 @@ public class MovingShapesPanel extends JPanel implements ActionListener {
 
 	}
 
+	public void setFrame(JFrame f) {
+		this.f = f;
+	}
+	
 	public static void main(String[] args) {
 
 		final int TIMER_SPEED = 5;
