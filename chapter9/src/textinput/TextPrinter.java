@@ -47,6 +47,7 @@ public class TextPrinter implements ActionListener {
 		f.add(textFieldPanel);
 		
 		printer = new JLabel();
+		printer.setHorizontalAlignment(SwingConstants.CENTER);
 		f.add(printer);
 		
 		f.setSize(600, 1000);

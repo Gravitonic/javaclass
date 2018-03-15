@@ -18,7 +18,6 @@ public class CardLayoutWindow implements ActionListener {
 			cl.show(cardsContainer, "card1");
 		} else if ("Card 2".equals(e.getActionCommand())) {
 			CardLayout cl = (CardLayout)(cardsContainer.getLayout());
-			System.out.println("card 2");
 			cl.show(cardsContainer, "card2");
 		}
 	}
