@@ -168,8 +168,8 @@ public class MovingShapesPanel extends JPanel implements ActionListener {
 
 	public void setupBlock(int positionCode, int width, int height) {
 
-		int frameWidth = f.getContentPane().getWidth();
-		int frameHeight = f.getContentPane().getHeight();
+		int frameWidth = this.getWidth();
+		int frameHeight = this.getHeight();
 
 		switch (positionCode) {
 

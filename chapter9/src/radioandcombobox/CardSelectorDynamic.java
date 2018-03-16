@@ -8,54 +8,84 @@ package radioandcombobox;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
+
+import background.*;
+import movingshapeswithmenu.*;
 
 public class CardSelectorDynamic implements ActionListener {
 
 	private  int NUM_CARDS;
 	private JFrame frame;
-	private JDialog dialog = new JDialog(frame, true);
-	private JPanel controlsPanel, cardsPanel;
-	private	JRadioButton[] radioButtons;
-	private JPanel[] cards;
+		private JPanel controlsPanel;
+			private JPanel radioPanel;
+			private ButtonGroup radioGroup;
+				private	JRadioButton[] radioButtons;
+			private JPanel comboBoxPanel;
+				private JComboBox comboBox;
+		private JPanel cardsPanel;
+			private JPanel[] cards;
+			private JLabel[] cardLabels;
 
 	public void actionPerformed(ActionEvent e) {
-
+		CardLayout cl = (CardLayout)(cardsPanel.getLayout());
+		
 	}
 
-	public void setNumCards(int numCards) {
-		NUM_CARDS = (int)JOptionPane.showInputDialog(
-				frame,
-				"Number of Cards:",
-				"Customized Dialog",
-				JOptionPane.PLAIN_MESSAGE,
-				null,
-				null,
-				"ham");
+	public void setNumCards() {
+		NUM_CARDS = Integer.parseInt(JOptionPane.showInputDialog(frame, "Number of Cards:", "3"));
+		System.out.println(NUM_CARDS);
 		radioButtons = new JRadioButton[NUM_CARDS];
 		cards = new JPanel[NUM_CARDS];
 	}
 
 	public void setup() {
-		JFrame f = new JFrame("Card Selector");
-		f.setLayout(new GridLayout(2,1));
+		frame = new JFrame("Card Selector");
+		frame.setLayout(new GridLayout(2,1));
 
-		JPanel controlsPanel = new JPanel();
+		controlsPanel = new JPanel(new GridLayout(1,2));
 
-		JPanel radioPanel = new JPanel();
+		radioPanel = new JPanel();
 		radioPanel.setLayout(new BoxLayout(radioPanel, BoxLayout.Y_AXIS));
-		ButtonGroup radioGroup = new ButtonGroup();
+		radioGroup = new ButtonGroup();
+		for (int i = 0; i < radioButtons.length; i++) {
+			radioButtons[i] = new JRadioButton("Card " + (i + 1));
+			radioButtons[i].setActionCommand("radio " + i);
+			radioGroup.add(radioButtons[i]);
+			radioPanel.add(radioButtons[i]);
+		}
+		controlsPanel.add(radioPanel);
+		
+		comboBoxPanel = new JPanel();
+		String[] comboOptions = new String[NUM_CARDS];
+		for (int i = 0; i < comboOptions.length; i++)
+			comboOptions[i] = "Card " + (i + 1);
+		comboBox = new JComboBox(comboOptions);
+		comboBoxPanel.add(comboBox);
+		controlsPanel.add(comboBoxPanel);
+		
+		frame.add(controlsPanel);
+		
+		cardsPanel = new JPanel(new CardLayout());
+		for (int i = 0; i < cards.length; i++) {
+			cardLabels[i] = new JLabel("This is card " + (i + 1));
+			cards[i].add(cardLabels[i]);
+			cardsPanel.add(cards[i]);
+		}
+		cards[0] = new MovingBackgroundPanel(10 /* milliseconds */);
+		frame.add(cardsPanel);
 
-		f.setSize(600, 1000);
-		f.setLocationRelativeTo(null);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setVisible(true);
+		frame.setSize(600, 1000);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
 	}
 
 	public static void main(String[] args) {
 		CardSelectorDynamic window = new CardSelectorDynamic();
-
-
+		window.setNumCards();
+		window.setup();
 	}
 
 }
