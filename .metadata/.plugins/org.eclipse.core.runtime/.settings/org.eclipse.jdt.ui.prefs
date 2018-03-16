@@ -9,10 +9,11 @@ org.eclipse.jdt.ui.editor.tab.width=
 org.eclipse.jdt.ui.exception.name=e
 org.eclipse.jdt.ui.formatterprofiles.version=13
 org.eclipse.jdt.ui.gettersetter.use.is=true
+org.eclipse.jdt.ui.javadoc=false
 org.eclipse.jdt.ui.javadoclocations.migrated=true
 org.eclipse.jdt.ui.overrideannotation=true
 org.eclipse.jdt.ui.text.code_templates_migrated=true
-org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="false" context\="newtype_context" deleted\="false" description\="Newly created files" enabled\="true" id\="org.eclipse.jdt.ui.text.codetemplates.newtype" name\="newtype">${filecomment}\n${package_declaration}\n\n${typecomment}\n${type_declaration}\n\n/*\n * Programmer\: Dylan Yang\n * Date\: ${date}\n * Purpose\: TODO\n */</template></templates>
+org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="false" context\="filecomment_context" deleted\="false" description\="Comment for created Java files" enabled\="true" id\="org.eclipse.jdt.ui.text.codetemplates.filecomment" name\="filecomment">/*\n * Programmer\: Dylan Yang\n * Date\: ${date}\n * Purpose\: TODO\n */</template></templates>
 org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
 org.eclipse.jdt.ui.text.templates_migrated=true
 org.eclipse.jface.textfont=1|Monaco|11.0|0|COCOA|1|;
