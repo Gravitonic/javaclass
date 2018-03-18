@@ -20,7 +20,8 @@ public class MovingShapesPanel extends JPanel implements ActionListener {
 	private JMenuItem[] stopSubmenuItems = new JMenuItem[10]; // [0]: stop all, [n]: stop block n (1 <= n <= 5)
 	private Block[] blocks = {new Block(), new Block(), new Block(), new Block(), new Block(), new Block(), new Block(), new Block(), new Block()};
 	private int numBlocks = 0;
-	public static final int TOP_LEFT = 1, TOP_RIGHT = 2, BOTTOM_LEFT = 3, BOTTOM_RIGHT = 4, CENTER_TOP = 5, CENTER_LEFT = 6, CENTER_BOTTOM = 7, CENTER_RIGHT = 8, CENTER = 9;
+	public static final int TOP_LEFT = 1, TOP_RIGHT = 2, BOTTOM_LEFT = 3, BOTTOM_RIGHT = 4, CENTER_TOP = 5, CENTER_LEFT = 6, CENTER_BOTTOM = 7, 
+			CENTER_RIGHT = 8, CENTER = 9;
 	private Timer t;
 	private int timerSpeed;
 
@@ -87,8 +88,8 @@ public class MovingShapesPanel extends JPanel implements ActionListener {
 
 		// update window sizes
 		for (Block b : blocks) {
-			b.setPanelWidth(f.getContentPane().getWidth());
-			b.setPanelHeight(f.getContentPane().getHeight());
+			b.setPanelWidth(getWidth());
+			b.setPanelHeight(getHeight());
 		}
 
 		repaint();
@@ -168,8 +169,8 @@ public class MovingShapesPanel extends JPanel implements ActionListener {
 
 	public void setupBlock(int positionCode, int width, int height) {
 
-		int frameWidth = this.getWidth();
-		int frameHeight = this.getHeight();
+		int frameWidth = getWidth();
+		int frameHeight = getHeight();
 
 		switch (positionCode) {
 
@@ -211,7 +212,7 @@ public class MovingShapesPanel extends JPanel implements ActionListener {
 			break;
 		}
 		
-		f.setVisible(true);
+		// f.setVisible(true);
 
 		t.start();
 
