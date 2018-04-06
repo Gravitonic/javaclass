@@ -8,4 +8,6 @@
 <fullyQualifiedTypeName name="util.Arrays"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="level.ColumnLevel"/>
+<fullyQualifiedTypeName name="java.awt.GridLayout"/>
 </qualifiedTypeNameHistroy>
