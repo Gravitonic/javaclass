@@ -1,0 +1,94 @@
+package movingshapes;
+/*
+ * Programmer: Dylan Yang
+ * Date: Feb 15, 2018
+ * Purpose: to display a Block 
+ */
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+@SuppressWarnings("serial")
+public class Display extends JPanel implements ActionListener {
+
+	private JFrame f;
+	private Block b, b2;
+	private Timer t;
+
+	public Display() {
+		t = new Timer(5, this);
+	}
+
+	public Display(int timerSpeed) {
+		t = new Timer(timerSpeed, this);
+	}
+
+	public void paintComponent(Graphics g) {
+		g.fillOval(b.getDeltaX(), b.getDeltaY(), b.getWidth(), b.getHeight());
+		g.fillOval(b2.getDeltaX(), b2.getDeltaY(), b2.getWidth(), b2.getHeight());
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		
+		b.setPanelWidth(f.getContentPane().getWidth());
+		b.setPanelHeight(f.getContentPane().getHeight());
+		
+		b2.setPanelWidth(f.getContentPane().getWidth());
+		b2.setPanelHeight(f.getContentPane().getHeight());
+		
+		repaint();
+	}
+
+	public void setupWindow(Display p) {
+
+		f = new JFrame("Display");
+
+		f.setSize(600, 400);
+		f.setLocationRelativeTo(null);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.add(p);
+
+		p.requestFocusInWindow();
+
+	}
+
+	public void setupBlock(int timerSpeed) {
+
+		b = new Block(0, 0, timerSpeed, 50, 50, f.getContentPane().getWidth(), f.getContentPane().getHeight());
+
+		f.setVisible(true);
+
+		b.setPanelWidth(f.getContentPane().getWidth());
+		b.setPanelHeight(f.getContentPane().getHeight());
+
+		t.start();
+
+	}
+
+	public void setupBlock(int startX, int startY, int timerSpeed, int width, int height) {
+
+		b2 = new Block(startX, startY, timerSpeed, width, height, f.getContentPane().getWidth(), f.getContentPane().getHeight());
+
+		f.setVisible(true);
+
+		b2.setPanelWidth(f.getContentPane().getWidth());
+		b2.setPanelHeight(f.getContentPane().getHeight());
+
+		t.start();
+
+	}
+
+	public static void main(String[] args) {
+
+		final int TIMER_SPEED = 5;
+
+		Display p = new Display(TIMER_SPEED);
+
+		p.setupWindow(p);
+		p.setupBlock(TIMER_SPEED);
+		p.setupBlock(550, 0, TIMER_SPEED, 50, 50);
+
+	}
+
+}

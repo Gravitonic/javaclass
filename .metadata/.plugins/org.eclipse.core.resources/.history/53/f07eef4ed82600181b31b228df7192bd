@@ -1,0 +1,32 @@
+package layouts;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+import background.MovingBackgroundPanel;
+import movingshapeswithmenu.MovingShapesPanel;
+
+public class CardLayoutWindow implements ActionListener {
+	
+	JPanel cardContainer;
+	
+	public static void main(String[] args) {
+		
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+	
+	public void setup() {
+		
+		JFrame f = new JFrame("Card Layout Window");
+		MovingBackgroundPanel panel1 = new MovingBackgroundPanel(10);
+		MovingShapesPanel panel2 = new MovingShapesPanel(10);
+		
+		f.setLayout(new CardLayout());
+		
+	}
+
+}

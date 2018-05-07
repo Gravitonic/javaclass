@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 3 elements to &apos;chapter7/src/cardgame&apos;&#x0A;- Original project: &apos;CardGame&apos;&#x0A;- Destination element: &apos;chapter7/src/cardgame&apos;&#x0A;- Original elements:&#x0A;     DisplayCards.java&#x0A;     Flip.java&#x0A;     Game.java&#x0A;- Update references to refactored element" description="Move compilation units" destination="=chapter7/src&lt;cardgame" element1="/src&lt;{DisplayCards.java" element2="/src&lt;{Flip.java" element3="/src&lt;{Game.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1525709260834" units="3" version="1.0"/>
+</session>

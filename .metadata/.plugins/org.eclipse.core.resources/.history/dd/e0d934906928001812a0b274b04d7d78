@@ -1,0 +1,51 @@
+package radioandcombobox;
+
+/*
+ * Programmer: Dylan Yang
+ * Date: Thu Mar 15 2017
+ * Purpose: to create a program that uses radio buttons and a combo box to switch panels
+ */
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class CardSelector implements ActionListener {
+
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+	
+	public void setup() {
+		JFrame f = new JFrame("Card Selector");
+		f.setLayout(new GridLayout(2,1));
+		
+		JPanel controlsPanel = new JPanel();
+		
+		JPanel radioPanel = new JPanel();
+		radioPanel.setLayout(new BoxLayout(radioPanel, BoxLayout.Y_AXIS));
+		JRadioButton radio1 = new JRadioButton("Panel 1");
+		radio1.setActionCommand("radio 1");
+		radioPanel.add(radio1);
+		JRadioButton radio2 = new JRadioButton("Panel 2");
+		radio2.setActionCommand("radio 2");
+		radioPanel.add(radio2);
+		JRadioButton radio3 = new JRadioButton("Panel 3");
+		radio3.setActionCommand("radio 3");
+		radioPanel.add(radio3);
+		controlsPanel.add(radioPanel);
+		
+		JPanel comboBoxPanel = new JPanel();
+		String[] panels = {"Panel 1", "Panel 2", "Panel 3"};
+		JComboBox<String> comboBox = new JComboBox<String>(panels);
+		comboBox.setSelectedIndex(0);
+		comboBoxPanel.add(comboBox);
+		controlsPanel.add(comboBoxPanel);
+	}
+	
+	public static void main(String[] args) {
+		CardSelector window = new CardSelector();
+		window.setup();
+	}
+	
+}

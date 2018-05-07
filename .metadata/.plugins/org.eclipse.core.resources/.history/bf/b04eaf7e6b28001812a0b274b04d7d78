@@ -1,0 +1,101 @@
+package radioandcombobox;
+
+/*
+ * Programmer: Dylan Yang
+ * Date: Thu Mar 15 2017
+ * Purpose: to create a program that uses radio buttons and a combo box to switch panels
+ */
+
+import java.awt.*;
+import java.awt.event.*;
+
+import javax.swing.*;
+
+public class CardSelector implements ActionListener {
+
+	JComboBox<String> comboBox;
+	JPanel cardsPanel;
+	
+	public void actionPerformed(ActionEvent e) {
+		CardLayout cl = (CardLayout)(cardsPanel.getLayout());
+		if (e.getActionCommand().equals("radio 1")) {
+			comboBox.setSelectedIndex(0);
+			cl.show(cardsPanel, "card1");
+		} else if (e.getActionCommand().equals("radio 2")) {
+			comboBox.setSelectedIndex(1);
+			cl.show(cardsPanel, "card2");
+		} else if (e.getActionCommand().equals("radio 3")) {
+			comboBox.setSelectedIndex(2);
+			cl.show(cardsPanel, "card3");
+		} else {
+			JComboBox cb = (JComboBox)e.getSource();
+			cl.show(cardsPanel, cb.getSelectedItem());
+		}
+	}
+	
+	public void setup() {
+		JFrame f = new JFrame("Card Selector");
+		f.setLayout(new GridLayout(2,1));
+		
+		JPanel controlsPanel = new JPanel();
+		
+		JPanel radioPanel = new JPanel();
+		radioPanel.setLayout(new BoxLayout(radioPanel, BoxLayout.Y_AXIS));
+		ButtonGroup radioGroup = new ButtonGroup();
+		JRadioButton radio1 = new JRadioButton("Panel 1");
+		radio1.setSelected(true);
+		radio1.setActionCommand("radio 1");
+		radio1.addActionListener(this);
+		radioGroup.add(radio1);
+		radioPanel.add(radio1);
+		JRadioButton radio2 = new JRadioButton("Panel 2");
+		radio2.setActionCommand("radio 2");
+		radio2.addActionListener(this);
+		radioGroup.add(radio2);
+		radioPanel.add(radio2);
+		JRadioButton radio3 = new JRadioButton("Panel 3");
+		radio3.setActionCommand("radio 3");
+		radio3.addActionListener(this);
+		radioGroup.add(radio3);
+		radioPanel.add(radio3);
+		controlsPanel.add(radioPanel);
+		
+		JPanel comboBoxPanel = new JPanel();
+		String[] panels = {"card1", "card2", "card3"};
+		comboBox = new JComboBox<String>(panels);
+		comboBox.setSelectedIndex(0);
+		comboBoxPanel.add(comboBox);
+		controlsPanel.add(comboBoxPanel);
+		
+		f.add(controlsPanel);
+		
+		cardsPanel = new JPanel(new CardLayout());
+		JPanel card1 = new JPanel();
+		JLabel card1Label = new JLabel("This is panel 1.");
+		card1.add(card1Label);
+		cardsPanel.add(card1, "card1");
+		
+		JPanel card2 = new JPanel();
+		JLabel card2Label = new JLabel("This is panel 2.");
+		card2.add(card2Label);
+		cardsPanel.add(card2, "card2");
+		
+		JPanel card3 = new JPanel();
+		JLabel card3Label = new JLabel("This is panel 3.");
+		card3.add(card3Label);
+		cardsPanel.add(card3, "card3");
+		
+		f.add(cardsPanel);
+		
+		f.setSize(600, 1000);
+		f.setLocationRelativeTo(null);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		CardSelector window = new CardSelector();
+		window.setup();
+	}
+	
+}

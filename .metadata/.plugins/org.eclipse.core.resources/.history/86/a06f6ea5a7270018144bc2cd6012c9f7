@@ -1,0 +1,13 @@
+package textinput;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class TextPrinter implements ActionListener {
+
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+	
+}

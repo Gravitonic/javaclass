@@ -1,0 +1,15 @@
+package layouts;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class CardLayoutWindow implements ActionListener {
+	
+	JPanel cardContainer;
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

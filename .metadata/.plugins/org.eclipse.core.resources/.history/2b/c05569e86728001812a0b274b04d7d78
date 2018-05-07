@@ -1,0 +1,27 @@
+package radioandcombobox;
+
+/*
+ * Programmer: Dylan Yang
+ * Date: Thu Mar 15 2017
+ * Purpose: to create a program that uses radio buttons and a combo box to switch panels
+ */
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class CardSelector implements ActionListener {
+
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+	
+	public void setup() {
+		JFrame f = new JFrame("Card Selector")
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+	
+}

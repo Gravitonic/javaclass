@@ -1,0 +1,43 @@
+/*
+ * Programmers: Jeffrey Meng and Dylan Yang
+ * Date: Apr 26, 2018
+ * Purpose: TODO
+ */
+
+package graphics;
+
+import java.awt.*;
+
+import javax.swing.*;
+
+import level.*;
+
+public class EquationLevelPanel extends JPanel {
+	
+	private EquationLevel level = new EquationLevel(2, EquationLevel.COEFFICIENT, EquationLevel.MULTIPLY);
+	
+	public void paintComponent(Graphics g) {
+
+	}
+
+	public void setupWindow(ColumnLevelPanel p) {
+		JFrame f = new JFrame("Column Level Panel");
+
+		Object[] equation = level.getEquation();
+
+		f.setLayout(new GridLayout(1, equation.length));
+
+		
+
+		f.setSize(600, 400);
+		f.setLocationRelativeTo(null);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.add(p);
+		f.setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		EquationLevelPanel p = new EquationLevelPanel();
+		p.setupWindow(p);
+	}
+}
