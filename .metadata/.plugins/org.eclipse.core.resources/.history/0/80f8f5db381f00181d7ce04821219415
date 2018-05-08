@@ -1,0 +1,68 @@
+import java.util.Scanner;
+import java.math.*;
+public class BasicCalculator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter a number");
+		double number1 = input.nextDouble();
+		System.out.println("Enter a number");
+		double number2 = input.nextDouble();
+		System.out.println("******MENU******");
+		System.out.println("Press 1 for addition");
+		System.out.println("Press 2 for subtraction");
+		System.out.println("Press 3 for multiplication");
+		System.out.println("Press 4 for division");
+		System.out.println("Press 5 for powers");
+		System.out.println("Press 6 for absolute value of first number");
+		System.out.println("Press 7 for absolute value of the second number");
+		System.out.println("Press 8 for greatest common factor");
+		System.out.println("Press 9 for lowest common factor");
+		System.out.println("Press 10 to round first number to nearest integer");
+		System.out.println("Press 11 to round second number to nearest integer");
+		System.out.println("Press 12 to find square root of the first number");
+		System.out.println("Press 13 to find square root of the second number");
+		double choice = input.nextInt();
+		if(choice==1){
+		System.out.println(number1 + number2);
+		}
+		if(choice==2){
+			System.out.println(number1 - number2);
+		}
+		if(choice==3){
+			System.out.println(number1 * number2);
+			}
+		if(choice==4){
+			System.out.println(number1 / number2);
+			}
+		if(choice==5){
+			System.out.println(Math.pow(number1,number2));
+		    }
+		if(choice==6){
+			System.out.println(Math.abs(number1));
+		    }
+		if(choice==7){
+			System.out.println(Math.abs(number2));
+			}
+		if(choice==8){
+			System.out.println(Math.max(number1, number2));
+			}
+		if(choice==9){
+			System.out.println(Math.min(number1, number2));
+		    }
+		if(choice==10){
+			System.out.println(Math.round(number1));
+			}
+		if(choice==11){
+			System.out.println(Math.round(number2));
+			}
+		if(choice==12){
+			System.out.println(Math.sqrt(number1));
+			}
+		if(choice==13){
+			System.out.println(Math.sqrt(number2));
+			}
+		}
+	}
+

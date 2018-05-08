@@ -1,0 +1,34 @@
+package radioandcombobox;
+
+/*
+ * Programmer: Dylan Yang
+ * Date: Mar 15, 2018
+ * Purpose: to create a program that uses radio buttons and a combo box to switch panels
+ */
+
+import java.util.Scanner;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class CardSelectorDynamic implements ActionListener {
+	
+	private final int NUM_CARDS;
+
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+	
+	public void setNumCards(int numCards) {
+		NUM_CARDS = numCards;
+	}
+	
+	public static void main(String[] args) {
+		CardSelectorDynamic window = new CardSelectorDynamic();
+		Scanner in = new Scanner(System.in);
+		System.out.println("Number of Cards: ");
+		in.nextInt();
+		in.close();
+	}
+	
+}

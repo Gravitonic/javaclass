@@ -1,0 +1,112 @@
+/*
+ * Programmer: Dylan Yang
+ * Date: Feb 15, 2018
+ * Purpose: to manage the coordinates of a block bouncing off the edges of a window 
+ */
+
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Block implements ActionListener {
+
+	private int deltaX, deltaY, width, height, panelWidth, panelHeight;
+	private boolean xBackward = false, yBackward = false;
+	private timer t;
+
+	public Block() {
+		deltaX = 0;
+		deltaY = 0;
+		width = 50;
+		height = 50;
+		panelWidth = 600;
+		panelHeight = 400;
+		t = new Timer(5, this);
+		t.start();
+	}
+	
+	public Block(int startX, int startY, int timerSpeed) {
+		deltaX = startX;
+		deltaY = startY;
+		width = 50;
+		height = 50;
+		panelWidth = 600;
+		panelHeight = 400;
+		t = new Timer(timerSpeed, this);
+		t.start();
+	}
+	
+	public Block(int startX, int startY, int timerSpeed, int width, int height, int panelWidth, int panelHeight) {
+		deltaX = startX;
+		deltaY = startY;
+		this.width = width;
+		this.height = height;
+		this.panelWidth = 600;
+		this.panelHeight = 400;
+		t = new Timer(timerSpeed, this);
+		t.start();
+	}
+	
+	public Block(int startX, int startY, int timerSpeed, int width, int height, JFrame frame) {
+		deltaX = startX;
+		deltaY = startY;
+		this.width = width;
+		this.height = height;
+		this.panelWidth = frame.getContentPane().getWidth();
+		this.panelHeight = frame.getContentPane().getHeight();
+		t = new Timer(timerSpeed, this);
+		t.start();
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		
+		if (deltaX >= panelWidth - width)
+			xBackward = true;
+		else if (deltaX <= 0)
+			xBackward = false;
+
+		if (deltaY >= panelHeight - height)
+			yBackward = true;
+		else if (deltaY <= 0)
+			yBackward = false;
+
+		if (xBackward)
+			deltaX--;
+		else
+			deltaX++;
+		
+		if (yBackward)
+			deltaY--;
+		else
+			deltaY++;
+		
+	}
+
+	public int getDeltaX() {
+		return deltaX;
+	}
+
+	public int getDeltaY() {
+		return deltaY;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+	
+	public void setPanelWidth(int panelWidth) {
+		this.panelWidth = panelWidth;
+	}
+	
+	public void setPanelHeight(int panelHeight) {
+		this.panelHeight = panelHeight;
+	}
+	
+	public void stopTimer() {
+		
+	}
+
+}

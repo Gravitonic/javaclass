@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class MadLib {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Scanner input = new Scanner(System.in);
+System.out.println("Enter a name");
+String noun1 = input.nextLine();
+System.out.println("Enter an adjective");
+String noun2 = input.nextLine();
+System.out.println("enter a verb");
+String noun3 = input.nextLine();
+System.out.println("enter a number");
+String noun4 = input.nextLine();
+System.out.println("Enter a book");
+String noun5 = input.nextLine();
+System.out.println("Enter another name");
+String noun6 = input.nextLine();
+System.out.println("Hi. My name is " + noun1 + ".");
+System.out.println("I am very " + noun2 + ".");
+System.out.println("Are you good at " + noun3 + "ing?");
+System.out.println("I am " + noun4 + " years old.");
+System.out.println("My favorite book is called " + noun5);
+System.out.println("My best friend is " + noun6);
+		}
+}

@@ -1,0 +1,10 @@
+package theoretically;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class CardCreator {
+	public void setupWindow() {
+		JFrame frame = new JFrame();
+	}
+}
