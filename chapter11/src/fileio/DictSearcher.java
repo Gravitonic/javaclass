@@ -19,7 +19,6 @@ public class DictSearcher {
 
 		consoleScanner = new Scanner(System.in);
 
-
 		while (repeat) {
 			System.out.print("Enter a word: ");
 			key = consoleScanner.nextLine();
